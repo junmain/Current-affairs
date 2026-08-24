@@ -2,7 +2,7 @@ import { adminDb } from "@/lib/firebase-admin";
 import Link from "next/link";
 import { format } from "date-fns";
 
-export const revalidate = 1800;
+export const dynamic = "force-dynamic";
 
 async function getArticle(id) {
   const doc = await adminDb.collection("articles").doc(id).get();

@@ -3,7 +3,7 @@ import ArticleCard from "@/components/ArticleCard";
 import Link from "next/link";
 import { format } from "date-fns";
 
-export const revalidate = 1800; // refresh the page's data every 30 min
+export const dynamic = "force-dynamic";
 
 async function getLatestArticles() {
   const snap = await adminDb.collection("articles").orderBy("createdAt", "desc").limit(24).get();

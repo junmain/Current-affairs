@@ -2,7 +2,7 @@ import { adminDb } from "@/lib/firebase-admin";
 import ArticleCard from "@/components/ArticleCard";
 import { format } from "date-fns";
 
-export const revalidate = 1800;
+export const dynamic = "force-dynamic";
 
 async function getAllArticles() {
   const snap = await adminDb.collection("articles").orderBy("createdAt", "desc").limit(200).get();

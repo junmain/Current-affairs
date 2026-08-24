@@ -2,7 +2,7 @@ import { adminDb } from "@/lib/firebase-admin";
 import ArticleCard from "@/components/ArticleCard";
 import { CATEGORIES } from "@/lib/rss-sources";
 
-export const revalidate = 1800;
+export const dynamic = "force-dynamic";
 
 async function getArticles(slug) {
   const snap = await adminDb
