@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { runFetchNews } from "@/lib/fetch-news";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 // Prevents anyone on the internet from triggering this (and burning your Groq quota)
 function isAuthorized(req) {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 async function getLatestArticles() {
   const snap = await adminDb.collection("articles").orderBy("createdAt", "desc").limit(24).get();
