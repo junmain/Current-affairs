@@ -71,6 +71,16 @@ export default function Sidebar() {
               {lang === "as" ? c.label_as : c.label_en}
             </Link>
           ))}
+
+          <div className="border-t border-line mt-3 pt-3">
+            <Link
+              href="/refresh"
+              onClick={close}
+              className="block px-5 py-3 text-sm font-medium text-gold hover:bg-gold/5"
+            >
+              {lang === "as" ? "এতিয়াই আপডেট কৰক" : "Update now"}
+            </Link>
+          </div>
         </nav>
       </aside>
     </>
