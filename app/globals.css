@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Signature motif: a thin woven-border stripe echoing the gamosa's end-border,
+   used once as a section divider — not decoration scattered everywhere. */
+.gamosa-rule {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #a5342a 0px,
+    #a5342a 10px,
+    #f7f4ec 10px,
+    #f7f4ec 14px,
+    #c08a28 14px,
+    #c08a28 18px,
+    #f7f4ec 18px,
+    #f7f4ec 22px
+  );
+}
+
+.lang-as {
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
