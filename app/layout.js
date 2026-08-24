@@ -1,6 +1,8 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import { LangProvider } from "@/components/LanguageToggle";
+import { SidebarProvider } from "@/components/SidebarToggle";
 
 export const metadata = {
   title: "অসম প্ৰস্তুতি | Asom Prostuti — Current Affairs for Assam Exams",
@@ -20,11 +22,14 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-paper text-ink font-body antialiased">
         <LangProvider>
-          <Navbar />
-          <main className="max-w-content mx-auto px-4 md:px-6">{children}</main>
-          <footer className="border-t border-line mt-20 py-8 text-center text-sm text-ink/60">
-            অসম প্ৰস্তুতি · Built for Assam Grade III / IV exam aspirants · Auto-updated daily
-          </footer>
+          <SidebarProvider>
+            <Navbar />
+            <Sidebar />
+            <main className="max-w-content mx-auto px-4 md:px-6">{children}</main>
+            <footer className="border-t border-line mt-20 py-8 text-center text-sm text-ink/60">
+              অসম প্ৰস্তুতি · Built for Assam Grade III / IV exam aspirants · Auto-updated daily
+            </footer>
+          </SidebarProvider>
         </LangProvider>
       </body>
     </html>

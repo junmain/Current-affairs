@@ -2,32 +2,31 @@
 
 import Link from "next/link";
 import { useLang } from "./LanguageToggle";
-import { CATEGORIES } from "@/lib/rss-sources";
+import { useSidebar } from "./SidebarToggle";
 
 export default function Navbar() {
   const { lang, setLang } = useLang();
+  const { toggle } = useSidebar();
 
   return (
     <header className="border-b border-line bg-paper/95 backdrop-blur sticky top-0 z-40">
       <div className="max-w-content mx-auto px-4 md:px-6 py-4 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-baseline gap-2 shrink-0">
-          <span className="font-display text-xl md:text-2xl text-tea">অসম প্ৰস্তুতি</span>
-          <span className="text-xs text-ink/50 hidden sm:inline">Asom Prostuti</span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggle}
+            aria-label="Open menu"
+            className="flex flex-col justify-center gap-1.5 w-8 h-8 shrink-0"
+          >
+            <span className="block h-0.5 w-6 bg-tea rounded-full" />
+            <span className="block h-0.5 w-6 bg-tea rounded-full" />
+            <span className="block h-0.5 w-4 bg-tea rounded-full" />
+          </button>
 
-        <nav className="hidden md:flex items-center gap-5 text-sm overflow-x-auto">
-          {CATEGORIES.slice(0, 6).map((c) => (
-            <Link key={c.slug} href={`/category/${c.slug}`} className="text-ink/70 hover:text-tea whitespace-nowrap">
-              {lang === "as" ? c.label_as : c.label_en}
-            </Link>
-          ))}
-          <Link href="/quiz" className="text-gamosa font-medium hover:text-tea whitespace-nowrap">
-            {lang === "as" ? "কুইজ" : "Quiz"}
+          <Link href="/" className="flex items-baseline gap-2 shrink-0">
+            <span className="font-display text-xl md:text-2xl text-tea">অসম প্ৰস্তুতি</span>
+            <span className="text-xs text-ink/50 hidden sm:inline">Asom Prostuti</span>
           </Link>
-          <Link href="/archive" className="text-ink/70 hover:text-tea whitespace-nowrap">
-            {lang === "as" ? "আৰ্কাইভ" : "Archive"}
-          </Link>
-        </nav>
+        </div>
 
         <div className="flex items-center gap-1 border border-line rounded-full p-1 text-xs shrink-0">
           <button
