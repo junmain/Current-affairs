@@ -30,7 +30,14 @@ export default async function RefreshPage() {
           <p>New saved: <strong className="text-tea">{results.saved ?? 0}</strong></p>
           <p>Already had: {results.skipped ?? 0}</p>
           {results.errors?.length > 0 && (
-            <p className="text-gamosa">{results.errors.length} source error(s)</p>
+            <div className="text-left mt-4 border border-gamosa/30 rounded-lg p-4 bg-gamosa/5">
+              <p className="text-gamosa font-medium mb-2">{results.errors.length} source error(s):</p>
+              <ul className="text-xs text-ink/70 space-y-1 list-disc list-inside">
+                {results.errors.map((e, i) => (
+                  <li key={i}>{e}</li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       )}
