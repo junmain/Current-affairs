@@ -1,4 +1,5 @@
 import { adminDb } from "@/lib/firebase-admin";
+import { runFetchNews } from "@/lib/fetch-news";
 import ArticleCard from "@/components/ArticleCard";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -11,6 +12,11 @@ async function getLatestArticles() {
 }
 
 export default async function HomePage() {
+  // Self-updating: if the data is missing or older than the gap set in
+  // lib/fetch-news.js, this runs a fetch before rendering. If it ran
+  // recently, this returns instantly (skipped) and costs nothing extra.
+  await runFetchNews();
+
   const articles = await getLatestArticles();
   const today = format(new Date(), "d MMMM yyyy");
 
