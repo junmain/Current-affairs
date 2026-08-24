@@ -4,6 +4,8 @@ import { adminDb } from "@/lib/firebase-admin";
 import { summarizeBilingual } from "@/lib/groq";
 import { RSS_SOURCES } from "@/lib/rss-sources";
 
+export const dynamic = "force-dynamic";
+
 const parser = new Parser({ timeout: 15000 });
 
 // Prevents anyone on the internet from triggering this (and burning your Groq quota)
